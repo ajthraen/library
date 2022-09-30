@@ -1,11 +1,16 @@
 import './index.css'
 import Nav from './components/Nav'
+import Landing from "./components/Landing.jsx"
+import Highlights from "./components/Highlights.jsx"
+import Featured from './components/Featured'
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <h1>Test</h1>
+      <Landing />
+      <Highlights />
+      <Featured />
     </div>
   )
 }

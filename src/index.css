@@ -454,7 +454,18 @@ EXPLORE
 */
 
 #explore {
-  background-color: rgba(115, 66, 214, 0.1);
+  background-color: rgba(200, 191, 219, 0.1);
+}
+
+/* 
+
+DISCOUNT 
+
+*/
+
+#discount {
+  padding-top: 8px;
+  background-color: rgb(255, 255, 255);
 }
 
 /* 

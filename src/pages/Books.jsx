@@ -32,7 +32,7 @@ const Books = ({ books: initialBooks }) => {
                 .slice()
                 .sort(
                     (a, b) => 
-                        (b.rating) - (a.rating)
+                        b.rating - a.rating
                     )
                 );
         }

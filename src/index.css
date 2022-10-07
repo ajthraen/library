@@ -419,6 +419,8 @@ FEATURES
 
 .book__link {
   color: #242424;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .book__img--wrapper {
@@ -625,6 +627,7 @@ select {
 .book__selected--title--top {
   margin-left: 10px;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .book__summary {

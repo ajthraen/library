@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Price from '../components/Price';
 import Rating from '../components/Rating';
+import Book from '../components/ui/Book';
 
 const BookInfo = ({books}) => {
     const { id } = useParams();
@@ -31,8 +32,8 @@ const BookInfo = ({books}) => {
                                         <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                                     </div>
                                     <div className="book__summary">
-                                        <div className="book_summary--title">
-                                            <h2>Summary</h2>
+                                        <div className="book__summary--title">
+                                            <h3>Summary</h3>
                                         </div>
                                         <div className="book__summary--para">
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam error molestias sunt at recusandae iusto omnis dolor ad dolorum? Praesentium nihil ratione maxime? Voluptatem molestias ea praesentium vitae recusandae!</p>
@@ -56,7 +57,13 @@ const BookInfo = ({books}) => {
                                 Recommended Books
                             </h2>
                         </div>
-
+                        <div className="books">
+                            {books
+                                .filter((book) => book.rating === 5 && +book.id !== +id)
+                                .slice(0, 4)
+                                .map(book => <Book book={book} key={book.id} />)
+                            }
+                        </div>
                     </div>
                 </div>
             </main>

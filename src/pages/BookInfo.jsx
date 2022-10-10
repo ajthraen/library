@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Price from '../components/Price';
 import Rating from '../components/Rating';
 
 const BookInfo = ({books}) => {
+    const { id } = useParams();
+    const book = books.find(book => book.id == id);
+    console.log(book);
     return (
         <div id="books__body">
             <main id="books__main">
@@ -19,13 +22,13 @@ const BookInfo = ({books}) => {
                             </Link> */}
                             <div className="book__selected">
                                 <figure className="book__selected--figure">
-                                    <img src="https://covers.openlibrary.org/b/id/8091016-L.jpg" alt="" className="book__selected--img" />
+                                    <img src={book.url} alt="" className="book__selected--img" />
                                 </figure>
                                 <div className="book__selected--description">
-                                    <h2 className="book__selected--title">Crack</h2>
-                                    <Rating rating="4.5" />
+                                    <h2 className="book__selected--title">{book.title}</h2>
+                                    <Rating rating={book.rating} />
                                     <div className="book_selected--price">
-                                        <Price originalPrice={13} salePrice={10} />
+                                        <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                                     </div>
                                     <div className="book__summary">
                                         <div className="book_summary--title">
@@ -53,6 +56,7 @@ const BookInfo = ({books}) => {
                                 Recommended Books
                             </h2>
                         </div>
+
                     </div>
                 </div>
             </main>

@@ -8,7 +8,7 @@ import Book from '../components/ui/Book';
 const BookInfo = ({books}) => {
     const { id } = useParams();
     const book = books.find(book => book.id == id);
-    console.log(book);
+    // console.log(book);
     return (
         <div id="books__body">
             <main id="books__main">
@@ -42,7 +42,9 @@ const BookInfo = ({books}) => {
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam error molestias sunt at recusandae iusto omnis dolor ad dolorum? Praesentium nihil ratione maxime? Voluptatem molestias ea praesentium vitae recusandae!</p>
                                         </div>
                                         <button className="btn">
-                                            Add to Cart
+                                            <Link to="/cart">
+                                                Add to Cart
+                                            </Link>
                                         </button>
                                     </div>
                                 </div>

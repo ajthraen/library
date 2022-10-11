@@ -12,8 +12,14 @@ import Cart from './pages/Cart'
 
 function App() {
   const [cart, setCart] = useState([]);
+
   function addToCart(book) {
-    setCart([...cart, book])
+    const dupeItem = cart.find(item => +item.id === +book.id)
+    if (dupeItem) {
+      dupeItem.quantity += 1;
+    }
+    console.log(dupeItem)
+    setCart([...cart, {...book, quantity: 1}])
   }
   useEffect(() => {
     console.log(cart);

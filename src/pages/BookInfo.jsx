@@ -1,13 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Price from '../components/Price';
 import Rating from '../components/Rating';
 import Book from '../components/ui/Book';
 
-const BookInfo = ({books, addToCart}) => {
+const BookInfo = ({books, addToCart, cart}) => {
     const { id } = useParams();
-    const book = books.find(book => book.id == id);
+    const book = books.find((book) => +book.id === +id);
+
+    function addBookToCart(book) {
+        addToCart(book);
+    }
+
+    // function bookExistsInCart() {
+    //     return cart.find(book => book.id === +id);
+    // }
+
     // console.log(book);
     return (
         <div id="books__body">
@@ -41,7 +50,16 @@ const BookInfo = ({books, addToCart}) => {
                                         <div className="book__summary--para">
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto aperiam error molestias sunt at recusandae iusto omnis dolor ad dolorum? Praesentium nihil ratione maxime? Voluptatem molestias ea praesentium vitae recusandae!</p>
                                         </div>
-                                        <button className="btn" onClick={() => addToCart(book)}>Add to Cart</button>
+                                        {/* {bookExistsInCart() ? (
+                                            <button className='btn'>Checkout</button>
+                                        ) : (
+                                            <button className="btn" onClick={() => addBookToCart(book)}>
+                                                Add to Cart
+                                            </button>
+                                        )} */}
+                                            <button className="btn" onClick={() => addBookToCart(book)}>
+                                                Add to Cart
+                                            </button>
                                     </div>
                                 </div>
                             </div>

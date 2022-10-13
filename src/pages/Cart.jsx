@@ -41,6 +41,7 @@ const Cart = ({cart, changeQuantity}) => {
                                                         min={0} 
                                                         max={99} 
                                                         className="cart__input"
+                                                        value={book.quantity}
                                                         onChange={(event) => changeQuantity(book, event.target.value)}
                                                     />
                                                 </div>

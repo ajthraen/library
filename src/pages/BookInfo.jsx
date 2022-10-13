@@ -60,6 +60,9 @@ const BookInfo = ({books, addToCart, cart}) => {
                                             <button className="btn" onClick={() => addBookToCart(book)}>
                                                 Add to Cart
                                             </button>
+                                            <Link to={'/cart'} className="book__link">
+                                                <button className="btn1">Go to Cart</button>
+                                            </Link>
                                     </div>
                                 </div>
                             </div>

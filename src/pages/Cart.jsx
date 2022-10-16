@@ -2,6 +2,27 @@ import React from 'react';
 import Price from '../components/Price.jsx'
 
 const Cart = ({cart, changeQuantity}) => {
+    const subTotal = () => {
+        let price = 0;
+        cart.forEach((item) => {
+            price += (item.salePrice || item.originalPrice) * item.quantity;
+        });
+        return price;
+    }
+    const taxTotal = () => {
+        let price2 = 0;
+        cart.forEach((item) => {
+            price2 += ((item.salePrice || item.originalPrice) * item.quantity * 0.1);
+        });
+        return price2;
+    }
+    const total = () => {
+        let price1 = 0;
+        cart.forEach((item) => {
+            price1 += (((item.salePrice || item.originalPrice) * item.quantity) * 0.1) + ((item.salePrice || item.originalPrice) * item.quantity)
+        });
+        return price1;
+    }
     return (
         <div id="book__body">
             <main id="books__main">
@@ -46,7 +67,7 @@ const Cart = ({cart, changeQuantity}) => {
                                                     />
                                                 </div>
                                                 <div className="cart__total">
-                                                    $100.00
+                                                    ${((book.salePrice || book.originalPrice) * book.quantity).toFixed(2)}
                                                 </div>
                                             </div>
                                         )
@@ -57,15 +78,15 @@ const Cart = ({cart, changeQuantity}) => {
                         <div className="total">
                             <div className="total__item total__sub--total">
                                 <span>Subtotal</span>
-                                <span>$100.00</span>
+                                <span>${subTotal().toFixed(2)}</span>
                             </div>
                             <div className="total__item total__tax">
                                 <span>Tax</span>
-                                <span>$1.00</span>
+                                <span>${taxTotal().toFixed(2)}</span>
                             </div>
                             <div className="total__item total__price">
                                 <span>Total</span>
-                                <span>$101.00</span>
+                                <span>${total().toFixed(2)}</span>
                             </div>
                             <button className="btn btn__checkout no--cursor"
                             onClick={() => alert('You buyin sumthin')}>

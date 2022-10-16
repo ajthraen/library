@@ -4,20 +4,17 @@ const SubTotal = ({salePrice, originalPrice, quantity}) => {
     let newPrice = 0;
     function subPrice(newPrice) {
         newPrice = salePrice * quantity;
+        console.log(newPrice);
+        return newPrice;
     }
-    //subPrice(newPrice);
-    console.log(subPrice(newPrice));
+    // console.log(newPrice);
     return (
         <div>
             <div className="book__price">
-                <>
-                    {quantity}
-                </>
-            </div>
-            <div className="book__price">
+                {/* <h3>${subPrice(newPrice).toFixed(2)}</h3> */}
                 {salePrice ? (
                     <>
-                        ${salePrice.toFixed(2)}
+                        <h3>${subPrice(newPrice).toFixed(2)}</h3>
                     </>
                 ):(
                     <>${originalPrice.toFixed(2)}</>

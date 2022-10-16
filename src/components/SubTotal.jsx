@@ -3,9 +3,17 @@ import React from 'react';
 const SubTotal = ({salePrice, originalPrice, quantity}) => {
     let newPrice = 0;
     function subPrice(newPrice) {
-        newPrice = salePrice * quantity;
-        console.log(newPrice);
-        return newPrice;
+        if (salePrice === null) {
+            newPrice = originalPrice * quantity;
+            console.log(newPrice);
+            return newPrice;
+
+        } else {
+            newPrice = salePrice * quantity;
+            console.log(newPrice);
+            return newPrice;
+        }
+
     }
     // console.log(newPrice);
     return (
@@ -17,7 +25,7 @@ const SubTotal = ({salePrice, originalPrice, quantity}) => {
                         <h3>${subPrice(newPrice).toFixed(2)}</h3>
                     </>
                 ):(
-                    <>${originalPrice.toFixed(2)}</>
+                    <h3>${subPrice(newPrice).toFixed(2)}</h3>
                     )}
             </div>
         </div>

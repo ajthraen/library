@@ -102,7 +102,7 @@ const Cart = ({cart, changeQuantity, removeItem}) => {
                                 </div>
                                 <button className="btn btn__checkout no--cursor"
                                 onClick={() => alert('You buyin sumthin')}>
-                                    Proceed to Checkout
+                                    Go to Checkout
                                 </button>
                             </div>
                         )}
